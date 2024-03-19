@@ -1,0 +1,16 @@
+@vite(['resources/css/cars.css', 'resources/js/app.js'])
+
+<div class="{{html.classNames([
+  'car',
+  {
+    carRed: car.color === 'red',
+    carGreen: car.color === 'green',
+    carBlue: car.color !== 'red' && car.color !== 'green',
+  }
+])}}">
+  <h2>{{ car.name }}</h2>
+  <br />
+  <span>{{ excerpt(car.description, 100) }}</span>
+  <br />
+  <a href={{ route('cars.show', {name: car.slug}) }}>Lees meer</a>
+</div>
